@@ -21,20 +21,17 @@ unit_intensity = 'Arb. units'
 unit_two_theta = '$^{\circ}$'
 unit_wavelength = '$\AA$'
 
-list_two_theta = []
-list_intensity = []
-
 # Write .csv file in appropriate format
 with open('xray_diffraction.csv', 'w') as fout:
     fout.write('Citation,Sub citation,Sub citation,Sub url,Common name,Measurement method,'+\
     'Measurement name,Measurement value,Measurement units,'+\
     'Measurement condition name,Measurement condition value,Measurement condition units,'+\
     'Measurement condition name,Measurement condition value,Measurement condition units\n')
-    for name in name_list[:5]:
+    for name in name_list[:10]:
         print name
         xray_info = ams_lxml.get_xray_info(name)
-        list_two_theta.append(xray_info.two_theta)
-        list_intensity.append(xray_info.intensity)
+        two_theta = xray_info.two_theta
+        intensity = xray_info.intensity
         ref_format = xray_info.author+'. '+xray_info.journal+'.' # +xray_info.title
         # remove title from reference because sometime they span to the 4th line
         fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \

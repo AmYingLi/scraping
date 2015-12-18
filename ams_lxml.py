@@ -79,8 +79,8 @@ def get_xray_info( name = '' ):
             print_flag = False
         if print_flag:
             fooline = item.split()
-            two_theta.append(float(fooline[0]))
-            intensity.append(float(fooline[1]))
+            xray_info.two_theta.append(float(fooline[0]))
+            xray_info.intensity.append(float(fooline[1]))
         if '2-THETA' in item:
             print_flag = True
        
