@@ -79,7 +79,7 @@ def get_xray_info( name = '' ):
         if 'CELL' in item:
             xray_info.cellparam = item.split()[2:]
             # Convert to float
-            xray_info.cellparam = [float(i) for i in xray_info.cellparam]
+            # xray_info.cellparam = [float(i) for i in xray_info.cellparam]
         if 'SPACE' in item:
             xray_info.spacegroup = item.split()[-1]
         if '=====' in item:

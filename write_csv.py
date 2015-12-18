@@ -18,8 +18,10 @@ sub_citation_1 = 'American Mineralogist Crystal Structure Database'
 url = 'http://rruff.geo.arizona.edu/AMS/amcsd.php'
 m_name = 'X-ray diffraction'
 unit_intensity = 'Arb. units'
-unit_two_theta = '$^{\circ}$'
-unit_wavelength = '$\AA$'
+unit_two_theta = '$^{\\circ}$'
+unit_wavelength = '$\\AA$'
+unit_cellparam_abc = '$\\AA$'
+unit_cellparam_theta = '$^{\\circ}$'
 
 # Write .csv file in appropriate format
 with open('xray_diffraction.csv', 'w') as fout:
@@ -38,4 +40,20 @@ with open('xray_diffraction.csv', 'w') as fout:
         +m_name+',Intensity,\"'+repr(intensity)+'\",'+unit_intensity \
         +',2$\Theta$,\"'+repr(two_theta)+'\",'+unit_two_theta \
         +',X-ray wavelength,'+str(xray_info.wavelength)+','+unit_wavelength+'\n')
+        # write cell parameters rows
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter (a),'+xray_info.cellparam[0]+','+unit_cellparam_abc+'\n')
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter (b),'+xray_info.cellparam[1]+','+unit_cellparam_abc+'\n')
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter (c),'+xray_info.cellparam[2]+','+unit_cellparam_abc+'\n')
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter ($\\alpha$),'+xray_info.cellparam[3]+','+unit_cellparam_theta+'\n')
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter ($\\beta$),'+xray_info.cellparam[4]+','+unit_cellparam_theta+'\n')
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Cell parameter ($\\gamma$),'+xray_info.cellparam[5]+','+unit_cellparam_theta+'\n')
+        # write space group row     
+        fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
+        +m_name+',Space group,\"'+xray_info.spacegroup+'\"\n')
 fout.close()
