@@ -27,7 +27,7 @@ with open('xray_diffraction.csv', 'w') as fout:
     'Measurement name,Measurement value,Measurement units,'+\
     'Measurement condition name,Measurement condition value,Measurement condition units,'+\
     'Measurement condition name,Measurement condition value,Measurement condition units\n')
-    for name in name_list[:10]:
+    for name in name_list[:5]:
         print name
         xray_info = ams_lxml.get_xray_info(name)
         two_theta = xray_info.two_theta

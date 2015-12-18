@@ -12,6 +12,8 @@ class XrayInfo:
         self.journal = ''
         self.title = ''
         self.wavelength = 0.0
+        self.cellparam = []
+        self.spacegroup = ''
     #
 ####
 
@@ -74,7 +76,12 @@ def get_xray_info( name = '' ):
     for item in fl:
         if 'WAVELENGTH' in item:
             xray_info.wavelength = float(item.split()[-1])
-        #
+        if 'CELL' in item:
+            xray_info.cellparam = item.split()[2:]
+            # Convert to float
+            xray_info.cellparam = [float(i) for i in xray_info.cellparam]
+        if 'SPACE' in item:
+            xray_info.spacegroup = item.split()[-1]
         if '=====' in item:
             print_flag = False
         if print_flag:
