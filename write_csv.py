@@ -22,6 +22,7 @@ unit_two_theta = '$^{\\circ}$'
 unit_wavelength = '$\\AA$'
 unit_cellparam_abc = '$\\AA$'
 unit_cellparam_theta = '$^{\\circ}$'
+# typo_list = ['Argesite','Byzantievite']
 
 # Write .csv file in appropriate format
 with open('xray_diffraction.csv', 'w') as fout:
@@ -30,6 +31,8 @@ with open('xray_diffraction.csv', 'w') as fout:
     'Measurement condition name,Measurement condition value,Measurement condition units,'+\
     'Measurement condition name,Measurement condition value,Measurement condition units\n')
     for name in name_list:
+        #if any(x in name for x in typo_list):
+        #    continue
         print name
         xray_info = ams_lxml.get_xray_info(name)
         two_theta = xray_info.two_theta
