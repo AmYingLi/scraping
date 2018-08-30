@@ -2,9 +2,9 @@
 ## MineMaterials: Web scraper for crystallographic data from American Mineralogist Crystal Structure Database
 
 ## Authors:
-Tonnam Balankura, The Pennsylvania State University; 
-Ying Li, Argonne National Laboratory; 
-Fu-Chang Sun, The University of Connecticut; 
+Tonnam Balankura, The Pennsylvania State University 
+Ying Li, Argonne National Laboratory
+Fu-Chang Sun, The University of Connecticut 
 Enshi Xu, The Pennsylvania State University
 
 ## Main contents: 
